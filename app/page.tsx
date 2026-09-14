@@ -1,4 +1,4 @@
-//
+// main page
 import Link from "next/link";
 import './main.css'
 import Action from "./Components/Action";

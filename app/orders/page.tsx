@@ -1,3 +1,4 @@
+// orders
 import Dashboard from "../Components/Dashboard";
 
 export default function Orders() {
@@ -7,3 +8,4 @@ export default function Orders() {
     </Dashboard>
   );
 }
+

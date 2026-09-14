@@ -1,0 +1,27 @@
+@import '../globals.css';
+
+input {
+    border: var(--color-foreground) solid 1px;
+    border-radius: 20px;
+    padding-left: 10px;
+    width: 200px;
+
+}
+
+input:focus {
+    border: rgb(182, 129, 31) solid 1px;
+}
+
+button {
+    font-size: 32;
+    margin-top: 50px;
+    border: var(--color-foreground) solid 1px;
+    border-radius: 20px;
+    width: 200px;
+}
+
+button:hover {
+    border-color: orange;
+    cursor: pointer;
+    color: orange;
+}

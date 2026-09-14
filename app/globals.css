@@ -1,9 +1,52 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "SF-B";
+  src: url("../public/fonts/SF\ Pro\ Display/SF-Pro-Display-Bold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF-L";
+  src: url("../public/fonts/SF\ Pro\ Display/SF-Pro-Display-Light.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF-R";
+  src: url("../public/fonts/SF\ Pro\ Display/SF-Pro-Display-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF-SB";
+  src: url("../public/fonts/SF\ Pro\ Display/SF-Pro-Display-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --Display: 2.5rem;
+  --Tsmall: 1rem;
+  --Tmid: 1.25rem;
+  --Tlarge: 2rem;
+  --Bsmall: 0.75rem;
+  --Bmid: 0.875rem;
+  --Blarge: 1rem;
+  --DSP: 1.375rem;
+  --BL-BM-TL-TS: 1.5rem;
+  --BS-TM: 1.625rem;
 }
+
 
 @theme inline {
   --color-background: var(--background);
@@ -22,6 +65,6 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 100px;
+  font-family: "SF-R", serif, Helvetica, sans-serif;
+  padding: 50px;
 }

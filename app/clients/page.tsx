@@ -1,3 +1,5 @@
+//clients page
+
 import Dashboard from "../Components/Dashboard";
 
 export default function Clients() {

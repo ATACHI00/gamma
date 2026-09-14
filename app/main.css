@@ -1,5 +1,3 @@
-
-
 .action {
     border: black solid 1px;
     width: 100%;
@@ -7,42 +5,39 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: var(--Tmid);
 }
-.new-order-href{
+
+.new-order-href {
     align-content: center;
     border: black solid 1px;
     min-height: 60px;
     width: 100%;
     text-align: center;
 }
-.history-href{
+
+.history-href {
     align-content: center;
     text-align: center;
     width: 100%;
     border: black solid 1px;
     margin-top: auto;
     min-height: 60px;
-    
-}
 
-.main-block {
-    border: black solid 1px;
-    min-width: none;
-    width: 100%;
-    margin-right: auto;
-    display: flex;
-    justify-content: center;
 }
 
 .menu {
+    font-size: var(--Tmid);
     min-width: 200px;
     border: black solid 1px;
     display: flex;
     flex-direction: column;
-    
+
 }
 
-.finance-href, .clients-href, .orders-href {
+.finance-href,
+.clients-href,
+.orders-href {
     border: black solid 1px;
     text-align: center;
     align-content: center;
