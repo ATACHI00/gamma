@@ -11,7 +11,9 @@ interface Order {
 
 export default function MainBlock() {
   const [data, setData] = useState<Order[]>([]);
-
+  const activeOrders = Array.isArray(data)
+    ? data.filter((item) => item.complete === 0)
+    : [];
   useEffect(() => {
     const res = async () => {
       try {
@@ -28,14 +30,14 @@ export default function MainBlock() {
   return (
     <div className={styles.mainBlock}>
       <div className={styles.mainList}>
-        {data?.map((item) =>
-          !item.complete ? (
+        {activeOrders.length > 0 ? (
+          activeOrders.map((item) => (
             <li className={styles.mbList} key={item.id}>
               {item.title}
             </li>
-          ) : (
-            <p className={styles.noOrders}>Активных заказов нет</p>
-          ),
+          ))
+        ) : (
+          <p className={styles.noOrders}>Активных заказов нет</p>
         )}
       </div>
     </div>
