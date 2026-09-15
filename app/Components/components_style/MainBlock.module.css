@@ -4,6 +4,10 @@
     align-content: center;
 }
 
+.noOrders {
+    margin: auto;
+}
+
 .mbList {
     width: 100%;
     border: wheat solid 1px;

@@ -22,7 +22,7 @@ export async function POST(request) {
 export async function GET() {
   const data = db.prepare("SELECT * FROM orders").all();
   console.log(data);
-  console.log(data.complete);
+  console.log("complete is", data.complete);
   return NextResponse.json(data);
 }
 

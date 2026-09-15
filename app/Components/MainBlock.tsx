@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 interface Order {
   id: number;
   title: string;
+  complete: number;
 }
 
 export default function MainBlock() {
@@ -27,12 +28,15 @@ export default function MainBlock() {
   return (
     <div className={styles.mainBlock}>
       <div className={styles.mainList}>
-        {data?.map((item) => (
-          <li className={styles.mbList} key={item.id}>
-            {" "}
-            {item.title}
-          </li>
-        ))}
+        {data?.map((item) =>
+          !item.complete ? (
+            <li className={styles.mbList} key={item.id}>
+              {item.title}
+            </li>
+          ) : (
+            <p className={styles.noOrders}>Активных заказов нет</p>
+          ),
+        )}
       </div>
     </div>
   );

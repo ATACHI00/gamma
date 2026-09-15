@@ -37,7 +37,7 @@ export default function New() {
     contact: "",
     title: "",
     describe: "",
-    price: 0,
+    price: 1,
     complete: false,
   });
 
@@ -119,8 +119,14 @@ export default function New() {
           value={data.price}
           onChange={(e) => {
             const value = e.target.value;
+            if (value === "") {
+              setError((prev) => ({
+                ...prev,
+                price: "Цена обязательна для заполнения",
+              }));
+            }
+
             if (
-              (data.price < 0 && data.price < 1) ||
               data.price > 10000000 ||
               (value[0] === "0" && value.length > 1)
             ) {
