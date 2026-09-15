@@ -1,7 +1,6 @@
 "use client";
-import "./components_style/MainBlock.css";
+import styles from "./components_style/MainBlock.module.css";
 import axios from "axios";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface Order {
@@ -26,11 +25,13 @@ export default function MainBlock() {
   }, []);
 
   return (
-    <div className="main-block">
-      <h1 className="title">Приветствую</h1>
-      <div className="main-list">
+    <div className={styles.mainBlock}>
+      <div className={styles.mainList}>
         {data?.map((item) => (
-          <li key={item.id}> {item.title}</li>
+          <li className={styles.mbList} key={item.id}>
+            {" "}
+            {item.title}
+          </li>
         ))}
       </div>
     </div>

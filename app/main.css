@@ -10,7 +10,7 @@
 
 .new-order-href {
     align-content: center;
-    border: black solid 1px;
+    border: white solid 3px;
     min-height: 60px;
     width: 100%;
     text-align: center;
@@ -20,7 +20,7 @@
     align-content: center;
     text-align: center;
     width: 100%;
-    border: black solid 1px;
+    border: white solid 3px;
     margin-top: auto;
     min-height: 60px;
 
@@ -29,7 +29,7 @@
 .menu {
     font-size: var(--Tmid);
     min-width: 200px;
-    border: black solid 1px;
+    border: white solid 3px;
     display: flex;
     flex-direction: column;
 
@@ -38,7 +38,7 @@
 .finance-href,
 .clients-href,
 .orders-href {
-    border: black solid 1px;
+    border: white solid 3px;
     text-align: center;
     align-content: center;
     margin-bottom: auto;

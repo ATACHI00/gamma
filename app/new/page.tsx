@@ -3,9 +3,28 @@
 import "./create.css";
 import { useState } from "react";
 import Button from "./components/Button";
+import Input from "./components/Input";
 import Dashboard from "../Components/Dashboard";
+import { useRouter } from "next/navigation";
+interface dataType {
+  name: string;
+  contact: string;
+  title: string;
+  describe: string;
+  price: number;
+  complete: boolean;
+}
 
 export default function New() {
+  const router = useRouter();
+
+  const titleLabel = {
+    nameLabel: "Заказчик",
+    contactLabel: "Контакты заказчика",
+    titleLabel: "Название услуги",
+    describeLabel: "Краткое описание",
+  };
+
   const [error, setError] = useState({
     name: "",
     contact: "",
@@ -13,92 +32,85 @@ export default function New() {
     describe: "",
     price: "",
   });
-  const [data, setData] = useState({
+  const [data, setData] = useState<dataType>({
     name: "",
     contact: "",
     title: "",
     describe: "",
     price: 0,
+    complete: false,
   });
 
   return (
     <Dashboard>
       <div className=" flex flex-col justify-center items-center w-full p-22">
-        <h1>Заказчик</h1>
-        <input
+        <Input
+          title={titleLabel.nameLabel}
           value={data.name}
-          placeholder="Артём"
-          onChange={(e) => {
-            const value = e.target.value;
+          placeholder="Андрей"
+          error={error.name}
+          onChange={(value) => {
             setError((prev) => ({
               ...prev,
-              name: value.length > 15 ? "Сократите имя" : "",
+              name:
+                value.length > 50
+                  ? `Некорректное значение ${titleLabel.nameLabel}`
+                  : "",
             }));
-            setData((prev) => ({
-              ...prev,
-              name: value,
-            }));
+            setData((prev) => ({ ...prev, name: value }));
           }}
-        ></input>
-        {error.name && <h1>{error.name}</h1>}
-        {/* # validation complete */}
+        />
 
-        <h1>Контакты заказчика</h1>
-        <input
-          placeholder="@ert12"
+        <Input
+          title={titleLabel.contactLabel}
           value={data.contact}
-          onChange={(e) => {
-            const value = e.target.value;
+          placeholder="@qwr23"
+          error={error.contact}
+          onChange={(value) => {
             setError((prev) => ({
               ...prev,
-              contact: value.length > 50 ? "Сократите запись" : "",
+              contact:
+                value.length > 50
+                  ? `Некорректное значение ${titleLabel.contactLabel}`
+                  : "",
             }));
-            setData((prev) => ({
-              ...prev,
-              contact: value,
-            }));
+            setData((prev) => ({ ...prev, contact: value }));
           }}
-        ></input>
-        {error.contact && <h1>{error.contact}</h1>}
-        {/* # validation complete */}
+        />
 
-        <h1>Название услуги</h1>
-        <input
-          placeholder="Сайт под ключ"
+        <Input
+          title={titleLabel.titleLabel}
           value={data.title}
-          onChange={(e) => {
-            const value = e.target.value;
+          placeholder="Сайт под ключ"
+          error={error.title}
+          onChange={(value) => {
             setError((prev) => ({
               ...prev,
-              title: value.length > 25 ? "Сократите запись" : "",
+              title:
+                value.length > 50
+                  ? `Некорректное значение ${titleLabel.titleLabel}`
+                  : "",
             }));
-            setData((prev) => ({
-              ...prev,
-              title: value,
-            }));
+            setData((prev) => ({ ...prev, title: value }));
           }}
-        ></input>
-        {error.title && <h1>{error.title}</h1>}
-        {/* # validation complete */}
+        />
 
-        <h1>Краткое инфо по услуге</h1>
-        <input
-          placeholder="Создание и деплой сайта"
+        <Input
+          title={titleLabel.describeLabel}
           value={data.describe}
-          onChange={(e) => {
-            const value = e.target.value;
+          placeholder="Создание и деплой сайта на Vercel"
+          error={error.describe}
+          onChange={(value) => {
             setError((prev) => ({
               ...prev,
-              describe: value.length > 100 ? "Сократите описание" : "",
+              describe:
+                value.length > 1000
+                  ? `Некорректное значение "${titleLabel.describeLabel}"`
+                  : "",
             }));
-            setData((prev) => ({
-              ...prev,
-              describe: value,
-            }));
+            setData((prev) => ({ ...prev, describe: value }));
           }}
-        ></input>
-        {error.describe && <h1>{error.describe}</h1>}
-        {/* # validation complete */}
+        />
 
         <h1>Цена услуги</h1>
         <input
@@ -106,20 +118,26 @@ export default function New() {
           placeholder="от 0 до 10 000 000"
           value={data.price}
           onChange={(e) => {
-            if ((data.price < 0 && data.price < 1) || data.price > 10000000) {
-              setError((prev) => ({ ...prev, price: "Некорректное значение" }));
+            const value = e.target.value;
+            if (
+              (data.price < 0 && data.price < 1) ||
+              data.price > 10000000 ||
+              (value[0] === "0" && value.length > 1)
+            ) {
+              setError((prev) => ({ ...prev, price: "Некорректная цена" }));
             } else {
               setError((prev) => ({ ...prev, price: "" }));
             }
             setData((prev) => ({
               ...prev,
-              price: parseInt(e.target.value),
+              price: parseInt(value),
             }));
           }}
         ></input>
-        {error.price && <h1>{error.price}</h1>}
-        {/* # validation complete */}
-        <Button data={data} />
+        {error.price && <h1 className="new-order-error">{error.price}</h1>}
+
+        <Button error={error} data={data} />
+        <button onClick={() => router.push("/")}> Отмена</button>
       </div>
     </Dashboard>
   );

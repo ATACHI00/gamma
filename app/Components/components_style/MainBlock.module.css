@@ -1,10 +1,10 @@
-h1 {
+.mbTitle {
     min-height: 60px;
     text-align: center;
     align-content: center;
 }
 
-li {
+.mbList {
     width: 100%;
     border: wheat solid 1px;
     list-style: none;
@@ -16,7 +16,7 @@ li {
     flex-shrink: 0;
 }
 
-.main-block {
+.mainBlock {
     height: 100%;
     font-size: var(--Tmid);
     border: black solid 1px;
@@ -29,7 +29,7 @@ li {
     align-items: center;
 }
 
-.main-list {
+.mainList {
     flex: 1;
     height: auto;
     min-height: 0;

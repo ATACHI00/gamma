@@ -1,0 +1,93 @@
+.ordersCont {
+    width: 100%;
+    font-size: var(--Tsmall);
+    padding: 20px;
+    overflow: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+
+
+.return {
+    font-size: var(--Tsmall);
+    cursor: pointer;
+}
+
+.return:hover {
+    color: orange;
+}
+
+.orderTitle {
+    font-size: var(--Tlarge);
+}
+
+
+.myList {
+    width: 100%;
+    display: flex;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    list-style: none;
+    border: white solid 3px;
+}
+
+.leftContent {
+    width: 50%;
+    border-right: white solid 3px;
+}
+
+.rightContent {
+    width: 100%;
+    overflow-wrap: anywhere;
+    padding: 5px;
+    align-self: center;
+}
+
+.lstOne {
+    overflow-wrap: break-word;
+    padding: 5px;
+    border-bottom: white solid 3px;
+}
+
+.lstSec {
+    padding: 5px;
+}
+
+
+.deleteBtn {
+    align-self: center;
+    block-size: border-box;
+    position: relative;
+    top: 0;
+}
+
+.deleteBtn:hover {
+    color: red
+}
+
+.completeToggle {
+    align-self: center;
+    block-size: border-box;
+    position: relative;
+    bottom: 0;
+    color: orange;
+    overflow-wrap: anywhere;
+}
+
+.completeToggle:hover {
+    color: rgb(246, 206, 132);
+}
+
+.togglesBtn {
+    width: 250px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border-left: wheat solid 3px;
+}
+
+.completed {
+    color: greenyellow;
+}

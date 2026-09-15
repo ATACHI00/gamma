@@ -1,0 +1,7 @@
+.homeCont {
+    padding: 10px, ;
+    border: white solid 1px;
+    height: 540px;
+    min-width: 682px;
+    display: flex;
+}
